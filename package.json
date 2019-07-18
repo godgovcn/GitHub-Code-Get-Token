@@ -1,0 +1,22 @@
+{
+  "name": "GitHub-Code-Get-Token",
+  "version": "1.0.0",
+  "description": "使用GitHub Code 换取 Github Oauth2 Token",
+  "main": "index.js",
+  "repository": "https://github.com/FireUnicornser/GitHub-Code-Get-Token",
+  "author": "FireUnicornser <FireUnicornser@outlook.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "forever start ./index.js",
+    "lists": "forever list",
+    "stop":"forever stop ./index.js",
+    "restart":"forever restart ./index.js"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "forever": "^1.0.0",
+    "log4js": "^4.5.1"
+  }
+}
