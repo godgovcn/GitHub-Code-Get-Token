@@ -2,5 +2,10 @@
   "port": 80,
   "origin":"Your website address",
   "client_id": "Your client_id",
-  "client_secret": "Your client_secret"
+  "client_secret": "Your client_secret",
+  "ssl" :{
+    "open" : false,
+    "key" : "",
+    "cert" : ""
+  }
 }

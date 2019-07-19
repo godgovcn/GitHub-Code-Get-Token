@@ -50,9 +50,18 @@ fs.readFile('./conf.json', 'utf-8', function (err, data) {
           });
       }
     })
-    var server = app.listen(conf.port, function () {
-      var host = server.address().address
-      var port = server.address().port;
-    })
+    if (conf.ssl.open) {
+      var https = require('https');
+      var privateKey = fs.readFileSync('./ssl/al.godgov.cn_key.key', 'utf8')
+      var certificate = fs.readFileSync('./ssl/al.godgov.cn_chain.crt', 'utf8');
+      var credentials = { key: privateKey, cert: certificate };
+      var httpsServer = https.createServer(credentials, app);
+      httpsServer.listen(conf.port, function () {});
+    } else {
+      var server = app.listen(conf.port, function () {
+        var host = server.address().address
+        var port = server.address().port;
+      })
+    }
   }
 })
